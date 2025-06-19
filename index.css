@@ -121,9 +121,9 @@
   --bs-form-invalid-color: #dc3545;
   --bs-form-invalid-border-color: #dc3545;
 }
-/*body{
+body{
   background-color: #cacaca;
-}*/
+}
 h1{
   color: #fff;
 }
@@ -228,6 +228,7 @@ h1{
 }
 .album figure{
   width: 300px;
+  position: relative;
 }
 .album figure img{
   width: 300px;
