@@ -1,8 +1,10 @@
-*{                            /* réinitialisation du css du navigateur */
+* {
+  /* réinitialisation du css du navigateur */
   margin: 0;
   padding: 0;
 }
-:root{                        /* CSS Variables for Bootstrap 5 */
+:root {
+  /* CSS Variables for Bootstrap 5 */
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -68,9 +70,16 @@
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
@@ -121,43 +130,44 @@
   --bs-form-invalid-color: #dc3545;
   --bs-form-invalid-border-color: #dc3545;
 }
-body{
+body {
   background-color: #cacaca;
 }
-h1{
+h1 {
   color: #fff;
 }
 
-#services p{
+#services p {
   max-width: 80%;
 }
-.nav-link:hover{
+.nav-link:hover {
   color: brown;
 }
-.test{                                  /*teste de changement de couleur de la navbar avec des couleurs personalisées*/
+.test {
+  /*teste de changement de couleur de la navbar avec des couleurs personalisées*/
   background-color: var(--bs-yellow);
 }
-#slider{
+#slider {
   position: relative;
 }
-.image_text{
+.image_text {
   position: absolute;
   z-index: 1;
   top: 137px;
   left: 147px;
 }
-.image_text span{
+.image_text span {
   color: #70abcf;
 }
-.line{
+.line {
   position: relative;
   width: 200px;
   height: 1px;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
   left: 42%;
   top: 9%;
 }
-.circle{
+.circle {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -166,23 +176,23 @@ h1{
   border-radius: 50%;
   right: 50%;
 }
-.fa-circle{
+.fa-circle {
   border: 5px solid #fff;
 }
-.icon{
+.icon {
   height: 60px;
   width: 60px;
   border-radius: 50%;
   border: 1px solid #70abcf;
 }
-.icon i{
+.icon i {
   position: absolute;
   color: #70abcf;
 }
-#projets{
+#projets {
   background-color: #bcbcbc;
 }
-.nav_projets{
+.nav_projets {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -191,7 +201,7 @@ h1{
   height: 40px;
   border-radius: 5px;
 }
-.nav_projets a{
+.nav_projets a {
   position: relative;
   text-decoration: none;
   text-align: center;
@@ -200,7 +210,8 @@ h1{
   color: #70abcf;
   opacity: 1;
 }
-.nav_projets a:hover{                   /* pour faire le changement de couleur de la navbar au survol */
+.nav_projets a:hover {
+  /* pour faire le changement de couleur de la navbar au survol */
   color: #fff;
   background-color: #70abcf;
   height: 4vh;
@@ -208,59 +219,61 @@ h1{
   border-top-right-radius: 5px;
   text-align: center;
 }
-.nav_projets a:hover:after{
+.nav_projets a:hover:after {
   position: absolute;
   display: block;
-  content: "";                          /*pour faire la petite flèche*/
+  content: ""; /*pour faire la petite flèche*/
   left: 50%;
   margin-top: 15px;
   margin-left: -14px;
   width: 3px;
   height: 0;
   border-style: solid;
-  border-color:  #70abcf transparent;
+  border-color: #70abcf transparent;
   border-width: 10px 10px 0px 10px;
 }
-.album{
-    display: flex;                      /* pour que les images soient alignées */
-    flex-wrap: wrap;                    /* pour que les images soient alignées */
-    justify-content: space-between;     /* pour que les images soient alignées */
+.album {
+  display: flex; /* pour que les images soient alignées */
+  flex-wrap: wrap; /* pour que les images soient alignées */
+  justify-content: space-between; /* pour que les images soient alignées */
 }
-.album figure{
+.album figure {
   width: 300px;
   position: relative;
 }
-.album figure img{
+.album figure img {
   width: 300px;
 }
-.album figcaption{
+.album figcaption {
   color: #fff;
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(0 0 0 .5);
+  background-color: rgba(0 0 0 0.5);
   overflow: hidden;
   height: 0;
-  transition: .5s ease;
+  transition: 0.5s ease;
 }
-.album figcaption h4{                   /* pour le titre de l'album */
+.album figcaption h4 {
+  /* pour le titre de l'album */
   position: absolute;
   top: -1px;
   left: 10px;
 }
-.album figcaption p{                    /* pour le texte de l'album */
+.album figcaption p {
+  /* pour le texte de l'album */
   margin-left: 10px;
   margin-top: 30px;
   font-size: 0.9em;
 }
-.album figure:hover figcaption{
+.album figure:hover figcaption {
   height: 30%;
   max-width: 100%;
   margin-bottom: 0;
   overflow: visible;
 }
-.fa-eye{
+.fa-eye {
   position: absolute;
   top: -25px;
   right: 26px;
@@ -271,35 +284,35 @@ h1{
   background-color: #70abcf;
   z-index: 5;
 }
-#contact{
+#contact {
   position: relative;
 }
-iframe{
+iframe {
   width: 100%;
   position: absolute;
   z-index: 2;
   margin: 0 auto;
 }
-.filtre{
+.filtre {
   position: relative;
   width: 100%;
   z-index: 2;
   background-color: rgba(25, 25, 253, 0.164);
 }
 form {
-    position: relative;
-    max-width: 300px;
-    left: 30%;
-    top: 5%;
-    z-index: 2;
-    opacity: 0.9;
-    background-color: #fff;
-    margin: 20px auto;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    gap: 8px;
+  position: relative;
+  max-width: 300px;
+  left: 30%;
+  top: 5%;
+  z-index: 2;
+  opacity: 0.9;
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  gap: 8px;
 }
-#success-message{
+#success-message {
   display: none;
 }
