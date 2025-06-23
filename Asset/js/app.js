@@ -116,7 +116,7 @@ document.addEventListener("DOMcontentLoaded", function () {
     let formIsValid = true;
 
     // Parcourt chaque champ pour vérifier s'il est vide
-    inputs.forEach((input) => {
+    inputs.forEach(input => {
       // trim() enlève les espaces au début et à la fin du texte
       if (input.value.trim() === '') {
         // Si le champ est vide, on ajoute une bordure rouge
