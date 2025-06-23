@@ -102,8 +102,8 @@ document.addEventListener("DOMcontentLoaded", function () {
   function escapeHtml(unsafe) {
     return unsafe
       .replace(/&/g, "&amp;") // Remplace & par &amp;
-      .replace(/</g, "&lt;") // Remplace < par &lt;
-      .replace(/>/g, "&gt;") // Remplace > par &gt;
+      .replace(/</g, "<") // Remplace < par &lt;
+      .replace(/>/g, ">") // Remplace > par &gt;
       .replace(/"/g, "&quot;") // Remplace " par &quot;
       .replace(/'/g, "&#039;"); // Remplace ' par &#039;
   }
@@ -112,15 +112,13 @@ document.addEventListener("DOMcontentLoaded", function () {
   // Cette fonction vérifie si tous les champs du formulaire sont remplis
   function checkForm() {
     // Sélectionne tous les champs du formulaire
-    const inputs = document.querySelectorAll(
-      "#monFormulaire input, #monFormulaire textarea"
-    );
+    const inputs = document.querySelectorAll("#monFormulaire input, #monFormulaire textarea");
     let formIsValid = true;
 
     // Parcourt chaque champ pour vérifier s'il est vide
     inputs.forEach((input) => {
       // trim() enlève les espaces au début et à la fin du texte
-      if (input.value.trim() === "") {
+      if (input.value.trim() === '') {
         // Si le champ est vide, on ajoute une bordure rouge
         input.style.border = "2px solid red";
         formIsValid = false;
@@ -137,14 +135,12 @@ document.addEventListener("DOMcontentLoaded", function () {
   // Cette fonction récupère les valeurs du formulaire et les sécurise contre les attaques XSS
   function prepareDataForBackend() {
     // Sélectionne tous les champs du formaulaire (input et textarea)
-    const formElements = document.querySelectorAll(
-      "#monFormulaire input, #monFormulaire textarea"
-    );
+    const formElements = document.querySelectorAll("#monFormulaire input, #monFormulaire textarea");
     // Crée un objet vide pour stocker les données
     const sanitizedData = {};
 
     // Parcourt chaque champ du formulaire
-    formElement.forEach((input) => {
+    formElements.forEach(input => {
       if (input.name) {
         // Pour chaque champ, on ajoute sa valeur sécurisée à l'objet
         // La clé est le nom du champ (name), la valeur est le contenu sécurisé
@@ -161,13 +157,13 @@ document.addEventListener("DOMcontentLoaded", function () {
 
   if (form) {
     // Ajoute un écouteur d'événement sur la soumission du formulaire
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", function(event) {
       event.preventDefault();
 
       // Vérifie si le formulaire est valide (tous les champs remplis)
       if (!checkForm()) {
         // Vérifie si le formulaire est valide (tous les champs remplis)
-        alert("Veuillez remplir tous les champs du formulaire. ");
+        alert(' Veuillez remplir tous les champs du formulaire. ');
         return; // return pour sortir
       }
 
@@ -176,19 +172,35 @@ document.addEventListener("DOMcontentLoaded", function () {
 
       //Affiche les données dans la console (pour démonstration)
       // Dans un cas réel, on enverrait ces données à un serveur
-      console.log("Données prêtes pour envoi au backend:", sanitizedData);
+      console.log('Données prêtes pour envoi au backend:', sanitizedData);
 
       // ==== AFFICHAGE DU MESSAGE DE SUCCES ====
       // Récuprère les éléments necessaires
-      const form = document.getElementByID("monFormaulaire");
-      const successMessage = document.getElementById("success-message");
+      const form = document.getElementByID('form-container');
+      const successMessage = document.getElementById('success-message');
 
       // Cache le formulaire et affiche le message de succès
       if (form && successMessage) {
         form.style.display = "none";
-        successMessage.style.display = "block";
+        successMessage.style.display = 'block';
       }
     });
   }
   // ==== VALIDATION EN TEMPS REEL ====
+    // Sélectionne tous les champs de mon formulaire
+    const inputs = document.querySelectorAll('#monFormulaire input, #monFormulaire textarea');
+    // Pour chaque champ, ajoute un écouteur d'événement sur la saisie du champ
+    inputs.forEach(input =>{
+      // L'événement 'input' se déclenche à chaque midification du champ
+      input.addEventListener('input', function(){
+      // Vérifie si le champ est vide
+      if(input.value.trim() === ''){
+        // Si vide, bordure rouge
+        input.style.border = '2px solid red';
+      }else{
+        // Si rempli, bordure verte
+        input.style.border = '2px solid green';
+      }
+    });
+  });
 });

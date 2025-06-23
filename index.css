@@ -292,6 +292,7 @@ iframe {
   position: absolute;
   z-index: 2;
   margin: 0 auto;
+  display: none;
 }
 .filtre {
   position: relative;
